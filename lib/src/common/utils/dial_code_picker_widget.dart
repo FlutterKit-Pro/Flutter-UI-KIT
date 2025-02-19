@@ -30,10 +30,10 @@
 
 //   bool _isValidPhoneNumber(String number) {
 //     if (_selectedDialCode == '+221') {
-//       // Sénégal
+
 //       return _snRegex.hasMatch(number);
 //     } else if (_selectedDialCode == '+225') {
-//       // Côte d'Ivoire
+
 //       return _ciRegex.hasMatch(number);
 //     }
 //     return false;
@@ -51,7 +51,7 @@
 //               _selectedDialCode = countryCode.dialCode ?? '';
 //             });
 
-//             // Vérifier le numéro actuel avec le nouveau code pays
+
 //             if (widget.phoneController != null) {
 //               final number = widget.phoneController!.text;
 //               if (number.isNotEmpty && !_isValidPhoneNumber(number)) {
