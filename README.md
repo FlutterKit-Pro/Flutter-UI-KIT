@@ -1,4 +1,5 @@
 # Flutter-UI-KIT
+
 # flutter_kit_pro
 
 /// create by Oumar Fall
@@ -53,21 +54,61 @@ Voici un exemple de documentation pour le fichier **README.md** du projet **Flut
 
 ## **Configuration**
 
-### **1. Gestion des thèmes**
+### **1. Architecture**
 
-Les thèmes Light et Dark sont configurés dans `lib/core/themes/app_theme.dart`. Vous pouvez personnaliser les couleurs et les styles selon vos besoins.
+### Vue d'ensemble
+
+## Avantages de l'architecture feature-first
+
+- Maintenabilité : Chaque fonctionnalité est isolée, facilitant les modifications
+- Scalabilité : Facilite le travail en équipe, chaque développeur peut travailler sur une fonctionnalité différente
+- Testabilité : Les fonctionnalités peuvent être testées indépendamment
+- Clarté : Il est facile de comprendre où se trouve le code d'une fonctionnalité spécifique
+- Modularité : Permet de transformer des fonctionnalités en packages séparés si nécessaire
+
+### 2.2 Structure du Projet
+
+```lib/
+├── constants/
+│   └── constant.dart
+├── features/ 
+│   ├── authentication/
+│   │   ├── data/
+│   │   ├── domain/
+│   │   └── presentation/
+│   ├── home/
+│   │   ├── data/
+│   │   ├── domain/
+│   │   └── presentation/
+│   └── setting/
+│       ├── data/
+│       ├── domain/
+│       └── presentation/
+├── localization/
+│   ├── intl_en.arb
+│   └── intl_fr.arb
+├── routing/
+│   ├── app_router.dart
+│   └── routes.dart
+└── common/
+    ├── services/
+    ├── theme/
+    ├── widgets/
+    └── utils/
+
+```
 
 ### **2. Navigation**
 
-La navigation est gérée avec **GoRouter**. Les routes sont définies dans `lib/core/navigation/app_router.dart`.
+La navigation est gérée avec **GoRouter**. Les routes sont définies dans `lib/src/routing/app_router.dart`.
 
 ### **3. Authentification**
 
-Le système d'authentification est prêt à être utilisé. Il suffit de configurer votre backend (Firebase ou API REST) dans `lib/data/datasources/api_client.dart`.
+Le système d'authentification est prêt à être utilisé. Il suffit de configurer votre backend (Firebase ou API REST) dans `lib/src/Feature/authentication`.
 
 ### **4. Localisation**
 
-Les fichiers de traduction se trouvent dans `assets/translations/`. Ajoutez des fichiers JSON pour chaque langue supportée.
+Les fichiers de traduction se trouvent dans `lib/src/localization/intl_en.arb`. Ajoutez des fichiers JSON pour chaque langue supportée.
 
 ### **5. Tests**
 
@@ -89,7 +130,7 @@ flutter test
 
 ### **Utiliser des composants UI**
 
-Les composants UI réutilisables se trouvent dans `lib/presentation/shared/`. Par exemple, pour utiliser un bouton personnalisé :
+Les composants UI réutilisables se trouvent dans `lib/src/featur/setting/presentation/screen/`. Par exemple, pour utiliser un bouton personnalisé :
 
 ```dart
 PrimaryButton(
@@ -97,37 +138,6 @@ PrimaryButton(
   onPressed: () => print('Button clicked'),
 );
 ```
-
-### **Changer de gestionnaire d'état**
-
-Le template supporte Riverpod, Provider, Bloc, et GetX. Pour changer de gestionnaire d'état :
-
-1. Modifiez les dépendances dans `pubspec.yaml`.
-2. Mettez à jour les providers dans `lib/core/dependencies/`.
-
----
-
-## **Tests**
-
-### **Tests unitaires**
-
-Les tests unitaires sont dans `test/unit/`. Exemple :
-
-```bash
-flutter test test/unit/login_usecase_test.dart
-```
-
-### **Tests d'intégration**
-
-Les tests d'intégration sont dans `test/integration/`. Exemple :
-
-```bash
-flutter test test/integration/auth_flow_test.dart
-```
-
----
-
-## **CI/CD**
 
 Le projet est configuré avec **GitHub Actions** pour exécuter les tests à chaque push ou pull request. Le fichier de configuration se trouve dans `.github/workflows/ci_cd.yml`.
 
@@ -151,7 +161,7 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 
 ## **Auteur**
 
-- **Votre Nom** - [Votre GitHub](https://github.com/votre-utilisateur)
+- **Votre Nom** - [Oumar Fall](https://github.com/omar6260)
 
 ---
 
